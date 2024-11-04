@@ -1,0 +1,7 @@
+streamlit
+tensorflow
+tensorflow-decision-forests
+pandas
+numpy
+scikit-learn
+joblib
