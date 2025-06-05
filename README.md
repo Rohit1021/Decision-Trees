@@ -23,3 +23,24 @@ This project leverages several key libraries:
 ### Summary
 
 This project combines multiple decision tree-based approaches to optimize prediction of in-hospital mortality, providing insight into which clinical features most significantly contribute to patient outcomes.
+
+### Model Artifacts
+
+The Streamlit app expects trained TensorFlow models in the directories
+`model_rd/` (Random Forest) and `model_gbdt/` (Gradient Boosted Trees).
+These folders are provided empty in the repository to keep its size small.
+
+To recreate the models:
+
+1. Install dependencies with `pip install -r requirements.txt`.
+2. Load `221.csv` and `230.csv`, concatenate them, and split into features
+   and labels.
+3. Fit a `StandardScaler` on the feature columns and save it using
+   `joblib.dump(scaler, "scaler_decision_trees.joblib")`.
+4. Train a `tfdf.keras.RandomForestModel` and save it with
+   `tf.saved_model.save(model_rd, "model_rd")`.
+5. Train a `tfdf.keras.GradientBoostedTreesModel` and save it with
+   `tf.saved_model.save(model_gbdt, "model_gbdt")`.
+
+Once trained, place the resulting `model_rd/` and `model_gbdt/` directories
+in the repository root so `fin.py` can load them.
