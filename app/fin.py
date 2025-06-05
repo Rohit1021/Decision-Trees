@@ -9,7 +9,7 @@ model_rd = tf.saved_model.load("model_rd")  # Load Random Forest model
 model_gbdt = tf.saved_model.load("model_gbdt")  # Load GBDT model
 
 # Load the scaler
-scaler = joblib.load("/Users/rohit/Desktop/Decision-Trees/models/scaler_decision_trees.joblib")  # Ensure this path is correct
+scaler = joblib.load("scaler_decision_trees.joblib")  # Ensure this path is correct
 
 # Streamlit app layout
 st.title("In-Hospital Mortality Prediction")
